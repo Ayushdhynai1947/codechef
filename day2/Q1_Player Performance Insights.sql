@@ -26,3 +26,11 @@
 -- │ Bob         │ 1500  │
 -- │ Charlie     │ 1300  │
 -- └─────────────┴───────┘
+
+SELECT p.player_name, p.score
+FROM Players p
+JOIN Matches m
+  ON p.player_name = m.winner
+GROUP BY p.player_name, p.score
+ORDER BY p.score DESC
+LIMIT 3;
